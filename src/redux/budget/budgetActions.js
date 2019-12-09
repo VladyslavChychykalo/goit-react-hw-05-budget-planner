@@ -4,5 +4,5 @@ export const Type = {
 
 export const addBudget = budget => ({
   type: Type.ADD_BUDGET,
-  payload: { budget }
+  payload: budget
 });

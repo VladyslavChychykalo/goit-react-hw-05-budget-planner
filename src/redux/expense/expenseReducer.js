@@ -3,10 +3,10 @@ import { Type } from "./expenseAction";
 const expensesReducer = (state = [], { type, payload }) => {
   switch (type) {
     case Type.ADD_EXPENSE:
-      return [...state, payload.expense];
+      return [...state, payload];
 
     case Type.REMOVE_EXPENSE:
-      return state.filter(item => item.id !== payload.id);
+      return state.filter(item => item.id !== payload);
 
     default:
       return state;

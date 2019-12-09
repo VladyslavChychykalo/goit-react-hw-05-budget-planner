@@ -5,10 +5,10 @@ export const Type = {
 
 export const addExpense = expense => ({
   type: Type.ADD_EXPENSE,
-  payload: { expense }
+  payload: expense
 });
 
 export const removeExpense = id => ({
   type: Type.REMOVE_EXPENSE,
-  payload: { id }
+  payload: id
 });
