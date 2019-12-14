@@ -1,4 +1,4 @@
-import { Type } from "./budgetActions";
+import { Type } from './budgetActions';
 
 const budgetReducer = (state = 0, { type, payload }) => {
   switch (type) {

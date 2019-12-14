@@ -1,1 +1,3 @@
-export const getItems = state => state.expenses;
+const getItems = state => state.expenses;
+
+export default getItems;

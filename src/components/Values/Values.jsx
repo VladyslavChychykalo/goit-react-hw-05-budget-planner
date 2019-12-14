@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Value from "../Value/Value";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Value from '../Value/Value';
 
 const Container = styled.section`
   display: inline-flex;
@@ -15,5 +16,11 @@ const Values = ({ budget, expenses, balance }) => (
     <Value label="Balance" value={balance} isPositive={balance >= 0} />
   </Container>
 );
+
+Values.propTypes = {
+  budget: PropTypes.number.isRequired,
+  expenses: PropTypes.number.isRequired,
+  balance: PropTypes.number.isRequired,
+};
 
 export default Values;

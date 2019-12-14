@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import shortid from "shortid";
-import Form from "../shared/Form";
-import Label from "../shared/Label";
-import Input from "../shared/Input";
-import Button from "../shared/Button";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import shortid from 'shortid';
+import Form from '../shared/Form';
+import Label from '../shared/Label';
+import Input from '../shared/Input';
+import Button from '../shared/Button';
 
 const labelStyles = `
   margin-bottom: 16px;  
@@ -11,17 +12,17 @@ const labelStyles = `
 
 export default class ExpenseForm extends Component {
   state = {
-    name: "",
-    amount: ""
+    name: '',
+    amount: '',
   };
 
-  // static propTypes = {
-  //   onSave: PropTypes.func.isRequired
-  // };
+  static propTypes = {
+    onSave: PropTypes.func.isRequired,
+  };
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -31,13 +32,14 @@ export default class ExpenseForm extends Component {
     this.props.onSave({
       id: shortid.generate(),
       amount: Number(this.state.amount),
-      name: this.state.name
+      name: this.state.name,
     });
 
-    this.setState({ name: "", amount: "" });
+    this.setState({ name: '', amount: '' });
   };
 
   render() {
+    const { name, amount } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Label customStyles={labelStyles}>
@@ -45,7 +47,7 @@ export default class ExpenseForm extends Component {
           <Input
             type="text"
             name="name"
-            value={this.state.name}
+            value={name}
             onChange={this.handleChange}
           />
         </Label>
@@ -55,7 +57,7 @@ export default class ExpenseForm extends Component {
             type="number"
             name="amount"
             placeholder={0}
-            value={this.state.amount}
+            value={amount}
             onChange={this.handleChange}
           />
         </Label>

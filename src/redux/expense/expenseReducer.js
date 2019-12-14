@@ -1,4 +1,4 @@
-import { Type } from "./expenseAction";
+import { Type } from './expenseAction';
 
 const expensesReducer = (state = [], { type, payload }) => {
   switch (type) {

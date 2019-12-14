@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Container = styled.div`
   text-align: center;
   padding: 8px 24px;
-  color: ${props => (props.isPositive ? "#388E3C" : "#D32F2F")};
+  color: ${props => (props.isPositive ? '#388E3C' : '#D32F2F')};
   user-select: none;
 `;
 
@@ -22,11 +23,21 @@ const Amount = styled.p`
   font-size: 48px;
 `;
 
-const Value = ({ label = "", value = 0, isPositive = 0 }) => (
+const Value = ({ label = '', value = 0, isPositive }) => (
   <Container isPositive={isPositive}>
     <Label>{label}</Label>
     <Amount>{value}&nbsp;&#x24;</Amount>
   </Container>
 );
+
+Value.defaultProps = {
+  isPositive: false,
+};
+
+Value.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  isPositive: PropTypes.bool,
+};
 
 export default Value;

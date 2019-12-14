@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Button from "../shared/Button";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Button from '../shared/Button';
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -40,5 +41,10 @@ const ExpensesTable = ({ items = [], onRemove }) => (
     </tbody>
   </Table>
 );
+
+ExpensesTable.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  onRemove: PropTypes.func.isRequired,
+};
 
 export default ExpensesTable;
